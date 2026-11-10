@@ -95,3 +95,4 @@ frontend/
 
 ## License
 Private & Proprietary - Adora Platform
+
