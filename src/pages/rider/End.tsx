@@ -7,8 +7,8 @@ import toast from 'react-hot-toast';
 type Log = {
   id: string;
   adId: string;
-  startKm: string;
-  endKm: string | null;
+  startKm: string | number;
+  endKm: string | number | null;
   logDate: string;
   status: string;
   ad: {title: string | null};
@@ -76,7 +76,7 @@ export default function End() {
                 value={logId}
                 onChange={e => {
                   setLogId(e.target.value);
-                  setKm(open.find(l => l.id === e.target.value)?.startKm || '');
+                  setKm(String(open.find(l => l.id === e.target.value)?.startKm ?? ''));
                 }}
                 required
               >

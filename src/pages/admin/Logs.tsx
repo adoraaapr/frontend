@@ -7,8 +7,8 @@ import toast from 'react-hot-toast';
 type Log = {
   id: string;
   logDate: string;
-  startKm: string;
-  endKm: string | null;
+  startKm: string | number;
+  endKm: string | number | null;
   startPhotoUrl: string;
   endPhotoUrl: string | null;
   adPhotoUrl: string | null;
@@ -84,7 +84,7 @@ export default function Logs() {
                   <p className="mt-1 text-xs text-slate-500 font-medium">
                     {new Date(l.logDate).toLocaleDateString()} · {l.ad.title || 'Campaign'} ·{' '}
                     <span className="font-bold text-slate-800">
-                      {Number(l.endKm) - Number(l.startKm)} km
+                      {l.endKm !== null ? `${(Number(l.endKm) - Number(l.startKm)).toFixed(1)} km` : 'In progress'}
                     </span>
                   </p>
                 </div>

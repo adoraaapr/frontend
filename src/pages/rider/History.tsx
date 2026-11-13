@@ -5,8 +5,8 @@ import {Card, Empty, ErrorState, Loading, PageTitle, Status} from '../../compone
 type Log = {
   id: string;
   logDate: string;
-  startKm: string;
-  endKm: string | null;
+  startKm: string | number;
+  endKm: string | number | null;
   status: string;
   adminNote: string | null;
   ad: {title: string | null};
@@ -64,7 +64,7 @@ export default function History() {
                         {l.startKm} → {l.endKm || 'Open'}
                       </td>
                       <td className="font-semibold text-slate-800">
-                        {l.endKm ? `${(Number(l.endKm) - Number(l.startKm)).toFixed(1)} km` : '—'}
+                        {l.endKm !== null ? `${(Number(l.endKm) - Number(l.startKm)).toFixed(1)} km` : '—'}
                       </td>
                       <td>
                         <Status value={l.status} />

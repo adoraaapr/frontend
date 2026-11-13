@@ -8,7 +8,7 @@ type Payout = {
   id: string;
   periodStart: string;
   periodEnd: string;
-  totalKm: string;
+  totalKm: string | number;
   ratePerKmPaise: number;
   amountPaise: string;
   status: string;
